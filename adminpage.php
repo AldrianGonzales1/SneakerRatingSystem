@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoleScore: The Ultimate Sneaker Grading Hub</title>
+    <title>Administrative Dashboard</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            background-image: url('jordan2.jpg'); /* Assuming jordan1.jpg is the filename of the Jordan 1 image */
+            background-image: url('mike4.jpg');
             background-size: cover;
             background-position: center;
-            height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
         }
         h1 {
-            margin-bottom: 20px;
-            font-size: 48px; /* Adjust font size as needed */
-            color: #ff9100; /* Set text color */
-            text-shadow: 
-              -1px -1px 0 #000,  
-               1px -1px 0 #000,
-              -1px  1px 0 #000,
-               1px  1px 0 #000; /* Create black border effect */
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #ff9100; /* Changed color to #ff9100 */
+            text-shadow: 2px 2px 0px #000000; /* Added text-shadow */
         }
         .button-container {
             display: flex;
@@ -37,22 +35,26 @@
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: #007bff;
+            background-color: #ff9100;
             color: #ffffff;
             text-decoration: none;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
         .button:hover {
-            background-color: #0056b3;
+            background-color: #ff7500;
         }
     </style>
 </head>
 <body>
-    <h1>SoleScore: The Ultimate Sneaker Grading Hub</h1>
-    <div class="button-container">
-        <a href="login.php" class="button">Log In</a>
-        <a href="guest.php" class="button">Continue as Guest</a>
+    <div class="container">
+        <h1>Administrative Dashboard</h1>
+        <div class="button-container">
+            <a href="add_shoes.php" class="button">Add Sneaker</a>
+            <a href="delete_shoes.php" class="button">Delete Sneaker</a>
+            <a href="view_shoes.php" class="button">View Shoes</a>
+           
+        </div>
     </div>
 </body>
 </html>

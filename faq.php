@@ -82,15 +82,15 @@ table {
     </div>
     <div class="collapse navbar-collapse" id="HOME">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php">Home</a></li>
+        <li class="active"><a href="homepage.php">Home</a></li>
       <li><a href="view_shoes.php">View Shoes</a></li>   
-     <li><a href="view_shoes.php">Manage My Shoes</a></li>
       <li><a href="lebron.php">LeBron James</a></li>
       <li><a href="jordan.php">Michael Jordan</a></li>
   <li><a href="durant.php">Kevin Durant</a></li>
   <li><a href="kyre.php">Kyre Irving</a></li>
   <li><a href="giannis.php">Giannis Antetokounmpo</a></li>
   <li><a href="faq.php">FAQ</a></li>
+   <li><a href="logout.php">Log Out</a></li>
 
 
       </ul>

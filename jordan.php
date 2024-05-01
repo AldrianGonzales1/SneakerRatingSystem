@@ -128,15 +128,15 @@ $servername = "localhost";
     </div>
     <div class="collapse navbar-collapse" id="HOME">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php">Home</a></li>
+        <li class="active"><a href="homepage.php">Home</a></li>
       <li><a href="view_shoes.php">View Shoes</a></li>   
-     <li><a href="view_shoes.php">Manage My Shoes</a></li>
       <li><a href="lebron.php">LeBron James</a></li>
       <li><a href="jordan.php">Michael Jordan</a></li>
   <li><a href="durant.php">Kevin Durant</a></li>
   <li><a href="kyrie.php">Kyre Irving</a></li>
   <li><a href="giannis.php">Giannis Antetokounmpo</a></li>
   <li><a href="faq.php">FAQ</a></li>
+   <li><a href="logout.php">Log Out</a></li>
       </ul>
       </ul>
     </div>
@@ -157,7 +157,7 @@ $servername = "localhost";
 </center>
 
       <aside>
-<h2><a href="add_sneaker_form.php">Add A New Shoe</a></h2> 
+<h2><a href="add_shoes.php">Add A New Shoe</a></h2> 
   <h3>  <a href= "index.php"> Go back to Homepage</a></h3>
         
   <table>

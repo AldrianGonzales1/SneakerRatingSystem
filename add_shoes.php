@@ -36,11 +36,7 @@ $statement2->closeCursor();
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-h1 {
-  text-shadow: 2px 2px 5px ;
-}
-</style>
+
 
     <title>Sneaker Review</title>
   <meta charset="utf-8">
@@ -55,6 +51,21 @@ h1 {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
  
 </head>
+<style>
+h1 {
+  text-shadow: 2px 2px 5px ;
+}
+ body {
+      background-color: white;
+    }
+    .header {
+      text-align: left;
+      padding: 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 100px;
+    }
+</style>
 <body>
 <main>
 <center>

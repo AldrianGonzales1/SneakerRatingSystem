@@ -11,7 +11,12 @@ ShoeBrand varchar (30) NOT NULL,
 ShoeName varchar(30) NOT NULL,
 Description varchar(30) NOT NULL
 ); 
-
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 -- Populate shoe data
 INSERT INTO Shoe VALUES 
 (1, 'Lebron', 'Lebron Soldier 14', '14th edition made in August 1, 2020'),
@@ -59,6 +64,11 @@ INSERT INTO Shoe VALUES
 (43, 'Giannis', 'Zoom Freak 3', 'Third Zoom Freak in 2021'),
 (44, 'Giannis', 'Giannis Immortality', 'First Immortality in 2021'),
 (45, 'Giannis', 'Zoom Freak 5', 'Fourth Zoom Freak in 2022');
+
+
+
+
+
 -- create the users and grant priveleges to those users
 GRANT SELECT, INSERT, DELETE, UPDATE
 ON PHP123.*

@@ -101,6 +101,7 @@
     <div class="collapse navbar-collapse" id="HOME">
       <ul class="nav navbar-nav">
       <li class="active"><a href="homepage.php">Home</a></li>
+      <li class="active"><a href="mainpage1.php">Test Home</a></li>
       <li><a href="view_shoes.php">View Shoes</a></li>
       <li><a href="products.php">Product List</a></li>
       <li><a href="adminportal.php">Admin</a></li>     

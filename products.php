@@ -109,7 +109,8 @@ h3,h5{
             <div class="col">
            
                 <div class="card">
-                    <img src="./img/dish1.jpg" class="card-img-top" alt="...">
+                    
+                    <img src= "img/<?php echo $Shoes['product_image']; ?>" class="card-img-top" alt="..." />
                     <div class="card-body">
                         <h2 class = "card-title"><?php echo $Shoes['ShoeBrand']; ?></h2>
                         <h3><?php echo $Shoes['ShoeName']; ?></h3>

@@ -16,24 +16,33 @@ CREATE TABLE users (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    usertype VARCHAR(30) NOT NULL DEFAULT 'user'
 );
+
+CREATE TABLE Reviews (
+review_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ ShoeID int(11) NOT NULL,
+ title varchar(50) NOT NULL,
+ review_description varchar(300) NOT NULL,
+ rating varchar(1) NOT NULL
+ );
+
 -- Populate shoe data
 INSERT INTO Shoe VALUES 
-(1, 'Lebron', 'Lebron Soldier 14', '14th edition made in August 1, 2020', 'lebronshoe1.jpg'),
-(2, 'Kyrie', 'Kyre 4 Halloween', '4th Halloween made in 2018', 'kyrieshoe1.jpg'),
+(1, 'LeBron', 'LeBron Soldier 14', '14th edition made in August 1, 2020', 'lebronshoe1.jpg'),
+(2, 'Kyrie', 'Kyrie 4 Halloween', '4th Halloween made in 2018', 'kyrieshoe1.jpg'),
 (3, 'Jordan', 'Air Jordan 1', 'First Air Jordan in 1985', 'jordanshoe1.jpg'),
 (4, 'Durant', 'KD1', 'Debut signature of Kevin Durant at 2008', 'durantshoe1.jpg'),
 (5, 'Kyrie', 'Spongebob SquarePants X Kyrie 5', 'Spongebob collaboration 2019', 'kyrieshoe2.jpg'),
-(6, 'Lebron', 'Nike Lebron 9 Low', '2012 USA Olympics', 'lebronshoe2.jpg'),
-(7, 'Lebron', 'Nike Zoom Lebron 4', 'Lebron 4 made in 2006', 'lebronshoe3.jpg'),
-(8, 'Lebron', 'LeBron NXXT Gen', '2024 shoe for Nexxt Generation', 'lebronshoe4.jpg'),
-(9, 'Lebron', 'LeBron Witness 7', 'Witness 7 made in 2022', 'lebronshoe5.jpg'),
-(10, 'Lebron', 'LeBron Witness 8', 'Witness 8 made in 2023', 'lebronshoe6.jpg'),
-(11, 'Lebron', 'LeBron NXXT Gen AMPD IPS', '2024 Akron-Inspired shoe for Nexxt Generation', 'lebronshoe7.jpg'),
-(12, 'Lebron', 'LeBron XXI "Freshwater', 'Lebron XXI made in 2023', 'lebronshoe8.jpg'),
-(13, 'Lebron', 'Nike Zoom LeBron 2', 'Zoom Lebron 2 Made in 2004', 'lebronshoe9.jpg'),
-(14, 'Lebron', 'LeBron 20x', 'LeBron 20x Made in 2022', 'lebronshoe10.jpg'),
+(6, 'LeBron', 'Nike LeBron 9 Low', '2012 USA Olympics', 'lebronshoe2.jpg'),
+(7, 'LeBron', 'Nike Zoom LeBron 4', 'LeBron 4 made in 2006', 'lebronshoe3.jpg'),
+(8, 'LeBron', 'LeBron NXXT Gen', '2024 shoe for Nexxt Generation', 'lebronshoe4.jpg'),
+(9, 'LeBron', 'LeBron Witness 7', 'Witness 7 made in 2022', 'lebronshoe5.jpg'),
+(10, 'LeBron', 'LeBron Witness 8', 'Witness 8 made in 2023', 'lebronshoe6.jpg'),
+(11, 'LeBron', 'LeBron NXXT Gen AMPD IPS', '2024 Akron-Inspired shoe for Nexxt Generation', 'lebronshoe7.jpg'),
+(12, 'LeBron', 'LeBron XXI "Freshwater', 'LeBron XXI made in 2023', 'lebronshoe8.jpg'),
+(13, 'LeBron', 'Nike Zoom LeBron 2', 'Zoom LeBron 2 Made in 2004', 'lebronshoe9.jpg'),
+(14, 'LeBron', 'LeBron 20x', 'LeBron 20x Made in 2022', 'lebronshoe10.jpg'),
 (15, 'Kyrie', 'KYRIE 3 MAMBA MENTALITY', '2017 Homage to Kobe', 'kyrieshoe3.jpg'),
 (16, 'Kyrie', 'KYRIE 7 BRED', 'Bred released in 2020', 'kyrieshoe4.jpg'),
 (17, 'Kyrie', 'KYRIE 4 CONFETTI', 'CONFETTI was released in 2017', 'kyrieshoe5.jpg'),
@@ -75,7 +84,18 @@ INSERT INTO Shoe VALUES
 (53, 'Kobe', 'Zoom Kobe VIII', '7th Zoom Kobe in 2012', 'kobeshoe8.jpg'),
 (54, 'Kobe', 'Zoom Kobe 9', '9th Zoom Kobe in 2014', 'kobeshoe9.jpg'),
 (55, 'Kobe', 'Zoom Kobe 10', '10th Zoom Kobe in 2015', 'kobeshoe10.jpg');
+
+
+
+
+INSERT INTO Reviews VALUES 
+(1, 1, 'TestReview1', 'Great Shoe', 5),
+(2, 1, 'TestReview2', 'Bad Shoe', 1),
+(3, 1, 'TestReview3', 'Okay', 3),
+(4, 4, 'TestReview4', 'Best one', 5);
 -- create the users and grant priveleges to those users
+
+
 GRANT SELECT, INSERT, DELETE, UPDATE
 ON PHP123.*
 TO mgs_user@localhost

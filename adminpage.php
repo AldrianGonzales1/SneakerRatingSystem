@@ -50,9 +50,12 @@
     <div class="container">
         <h1>Administrative Dashboard</h1>
         <div class="button-container">
+             <a href="homepage_admin.php" class="button">Home</a>
             <a href="add_shoes.php" class="button">Add Sneaker</a>
             <a href="delete_shoes.php" class="button">Delete Sneaker</a>
-            <a href="view_shoes.php" class="button">View Shoes</a>
+            <a href="view_shoes.php" class="button">View Sneakers</a>
+            <a href="admin_view_review.php" class="button">View Reviews</a>
+            <a href="delete_review_form.php" class="button">Delete Reviews</a>
            
         </div>
     </div>

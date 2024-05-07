@@ -1,47 +1,4 @@
 
-
-<?php
-$servername = "localhost"; 
-  $username = "root"; 
-  $password = ""; 
-  $databasename = "php123"; 
-  
-  // create connection
-  $conn = mysqli_connect($servername,  
-    $username, $password, $databasename); 
-  
-   
-  if (!$conn) { 
-      die("Connection failed: " . mysqli_connect_error()); 
-  } 
-  
-  // sql query to only choose 'Lebron' shoes
-  $query = "SELECT ShoeID, ShoeBrand, ShoeName, Description FROM Shoe WHERE ShoeBrand = 'Jordan'"; 
-  
-  try 
-  { 
-      $conn = new PDO( 
-        "mysql:host=$servername;dbname=$databasename",  
-        $username, $password); 
-  
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-      $stmt = $conn->prepare($query); 
-      // EXECUTING THE QUERY 
-      $stmt->execute(); 
-  
-      $r = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-      // FETCHING DATA FROM DATABASE 
-      $result = $stmt->fetchAll(); 
-      // OUTPUT DATA OF EACH ROW 
-      
-  } catch(PDOException $e) { 
-      echo "Error: " . $e->getMessage(); 
-  } 
-  
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +19,7 @@ $servername = "localhost";
     }
     
          body {
-      background-image: url('rise-of-digital-twins%20final%20image.webp');
+     background-color : #00008B;
       background-size: cover;
       opacity:1.11; 
       color:white;      
@@ -128,14 +85,15 @@ $servername = "localhost";
     </div>
     <div class="collapse navbar-collapse" id="HOME">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="homepage.php">Home</a></li>
-      <li><a href="view_shoes.php">View Shoes</a></li>   
+        <li class="active"><a href="homepage_admin.php">Home</a></li>
+      <li><a href="view_shoes.php">View Shoes</a></li>
+       <li><a href="adminportal.php">Admin</a></li>       
       <li><a href="lebron.php">LeBron James</a></li>
       <li><a href="jordan.php">Michael Jordan</a></li>
+      <li><a href="kobe.php">Kobe Bryant</a></li>
   <li><a href="durant.php">Kevin Durant</a></li>
   <li><a href="kyrie.php">Kyre Irving</a></li>
   <li><a href="giannis.php">Giannis Antetokounmpo</a></li>
-  <li><a href="faq.php">FAQ</a></li>
    <li><a href="logout.php">Log Out</a></li>
       </ul>
       </ul>
@@ -143,73 +101,71 @@ $servername = "localhost";
   </div>
 </nav>
 <br>
- 
+ <header>
 
+<h1>Jordan Shoes</h1>
 
-
-<main>
-<center>
-
-   <header>
-<h1>My Shoes</h1>
+</header>
 
 </header>
 </center>
 
-      <aside>
-<h2><a href="add_shoes.php">Add A New Shoe</a></h2> 
-  <h3>  <a href= "index.php"> Go back to Homepage</a></h3>
-        
-  <table>
-            <thead>
+
+<table>
+    <?php
+$servername = "localhost"; 
+  $username = "mgs_user"; 
+  $password = "pa55word"; 
+  $databasename = "php123"; 
+  
+  // create connection
+  $conn = mysqli_connect($servername,  
+    $username, $password, $databasename); 
+  
+   
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Prepare the statement
+$stmt = mysqli_prepare($conn, "SELECT * FROM Shoe WHERE ShoeBrand = ?");
+$ShoeBrand = "Jordan"; // The brand you want to search for
+mysqli_stmt_bind_param($stmt, "s", $ShoeBrand);
+
+// Execute the query
+mysqli_stmt_execute($stmt);
+
+// Get the result
+$result = mysqli_stmt_get_result($stmt);
+
+// Display results in an HTML table
+if (mysqli_num_rows($result) > 0) {
+    echo "<table border='1'>
             <tr>
-            <th colspan="4"> 
-            </th>
-            </tr>
-          </thead>      
-         <tbody><tr> 
                 
-                <th>Shoe Brand</th>
                 <th>Shoe ID</th>
                 <th>Shoe Name</th>
                 <th>Description</th>
-                   
+            </tr>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>
+                <td>{$row['ShoeID']}</td>
+                <td>{$row['ShoeName']}</td>
+                <td>{$row['Description']}</td>
+              </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No results found.";
+}
+
+mysqli_stmt_close($stmt);
+mysqli_close($conn);
+?>
            
-                
-            </tr>
-            
-            <?php  foreach ($result as $row)    : ?>
-            <tr>
-                
-                <td><?php echo $row['ShoeBrand']; ?></td>
-                <td><?php echo $row['ShoeID']; ?></td>
-                 <td><?php echo $row['ShoeName']; ?></td>
-                <td><?php echo $row['Description']; ?></td>
-               
-        
-              
-            <input type="hidden" name="shoe_id"
-            value="<?php echo $Shoe['ShoeID']; ?>">
-                   
-    
+     
 
-    
-        </form> 
-                </td>
-            </tr>
-                </form>
-                </td>
-            </tr>
-            
-            <?php $conn->close();  endforeach; ?>
-          
-        
-        </table>      
-    
-        
-</main>    
 
-</center>
 
 
 </body>

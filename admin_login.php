@@ -4,7 +4,7 @@ session_start();
  
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: homepage.php");
+    header("location: homepage_admin.php");
     exit;
 }
  
@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Check if password is empty
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter password.";
+        $password_err = "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
     }
@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate user and pass
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = :username";
+        $sql = "SELECT id, username, password, usertype FROM users WHERE username = :username";
         
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -50,19 +50,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if($row = $stmt->fetch()){
                         $id = $row["id"];
                         $username = $row["username"];
-                        $hashed_password = $row["password"];
-                        if(password_verify($password, $hashed_password)){
-                            // session start if password is correct
+                        $password = $row["password"];
+                            if($row["usertype"]=="user")
+                            {
+                                throw new Exception("Only admins are allowed");
+                            }
+                            // Password is correct, so start a new session
                             session_start();
                             
                             // Store data
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
-                            header("location: homepage.php");
-                        } else{
-                            // Password is invalid
-                            $login_err = "Invalid username or password.";
+                            
+                             header("location: homepage_admin.php");
                         }
                     }
                 } else{
@@ -80,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     
     unset($pdo);
-}
+
 ?>
  
 <!DOCTYPE html>
@@ -90,14 +91,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body{ font: 14px Arial; }
+      body{ font: 14px Arial; }
         .wrapper{ width: 400px; padding: 20px; 
 
 
         }
     </style>
-    
-   
 </head>
 <body>
     <div class="wrapper">
@@ -124,6 +123,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
+
+
             <a href="register.php">Sign up now</a>.
             <br><br>
                <a href="index.php">Back to Index</a>.
@@ -131,3 +132,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
 </body>
 </html>
+

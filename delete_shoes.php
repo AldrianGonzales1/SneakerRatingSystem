@@ -55,11 +55,11 @@ h1 {
 
 
 <header>
-<h1>Remove Shoes</h1>
+<h1>Remove Sneakers</h1>
 </header>
 </center>
     <main>
-   <h2>Remove Shoes</h2>
+   <h2>Remove Sneakers</h2>
    <form action="delete_data.php" method="post"
       id="delete_shoes">
      <label>Enter Shoe ID:</label>

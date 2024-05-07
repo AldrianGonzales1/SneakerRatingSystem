@@ -103,7 +103,7 @@
 <br>
  <header>
 
-<h1>Giannis Shoes</h1>
+<h1>Kobe Shoes</h1>
 
 </header>
 
@@ -129,7 +129,7 @@ $servername = "localhost";
 
 // Prepare the statement
 $stmt = mysqli_prepare($conn, "SELECT * FROM Shoe WHERE ShoeBrand = ?");
-$ShoeBrand = "Giannis"; // The brand you want to search for
+$ShoeBrand = "Kobe"; // The brand you want to search for
 mysqli_stmt_bind_param($stmt, "s", $ShoeBrand);
 
 // Execute the query

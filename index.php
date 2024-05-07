@@ -52,7 +52,7 @@
     <h1>SoleScore: The Ultimate Sneaker Grading Hub</h1>
     <div class="button-container">
         <a href="login.php" class="button">Log In</a>
-        <a href="guest.php" class="button">Continue as Guest</a>
+        <a href="admin_login.php" class="button">Admin Log In</a>
     </div>
 </body>
 </html>

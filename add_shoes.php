@@ -72,11 +72,11 @@ h1 {
 
 
 <header>
-<h1>Add Shoes</h1>
+<h1>Add Sneaker</h1>
 </header>
 </center>
     <main>
-   <h2>Add Shoes</h2>
+   <h2>Add A Sneaker</h2>
    <form action="add_data.php" method="post"
       id="add_shoes">
 
@@ -85,7 +85,7 @@ h1 {
       <input type="text" name="shoe_brand"><br>
    <!---   <label>Shoe Date:</label>
       <input type="date" name="shoe_date"><br> -->
-      <label>Shoe Name:</label>
+      <label>Sneaker Name:</label>
       <input type="text" name="shoe_name"><br>
       <label>Description:</label>
       <input type="text" name="descrip"><br>

@@ -24,9 +24,11 @@ $Shoe = $statement1->fetch();
 $ShoeName= $Shoe['ShoeName'];
 $statement1->closeCursor();
 
-// Get all shoes
+
+// Get Lebron shoes
 $queryAllShoe = 'SELECT * FROM Shoe
-                       ORDER BY ShoeID';
+                       WHERE ShoeBrand LIKE "LeBron"';
+
 $statement2 = $db->prepare($queryAllShoe);
 $statement2->execute();
 $Shoe = $statement2->fetchAll();
@@ -81,7 +83,7 @@ body{
     width: 120px;
 }
 .btn-primary:hover{
-    background-color: white ;
+    background-color: black;
     border: none;
 }
 h3,h5{
@@ -92,12 +94,12 @@ h3,h5{
 }
 
 </style>
-
-
+</head>
 
     
      
-   <head>
+   
+       <head>
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="homepage.php">Home</a>
@@ -111,10 +113,9 @@ h3,h5{
 </nav>
       </head>
       
-      
 <body>
     <div class="container py-5">
-        <h1 class="text-center">Shoe List</h1>
+        <h1 class="text-center">LeBron James</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
      <?php  foreach ($Shoe as $Shoes) : ?>
             <div class="col">
@@ -129,10 +130,9 @@ h3,h5{
 
                     </div>
                     <div class="mb-5 d-flex justify-content-around">
-                        <button class="btn btn-outline-primary"><a href="view_review.php?ShoeID=<?php echo $Shoes['ShoeID'];?>">View Reviews</a></li></button>
+                          <button class="btn btn-outline-primary"><a href="view_review.php?ShoeID=<?php echo $Shoes['ShoeID'];?>">View Reviews</a></li></button>
 
                         <button class="btn btn-outline-primary"><a href="add_review_form.php">Add Review</a></li></button>
-  
                     </div>
                 </div>
             </div>

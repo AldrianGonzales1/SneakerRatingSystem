@@ -10,9 +10,11 @@ if(!isset($_SESSION["username"]))
 
 {
 
-  header("location:login.php");
+  header("location:login_admin.php");
 
 }
+
+
 
 ?>
 
@@ -118,8 +120,9 @@ if(!isset($_SESSION["username"]))
     </div>
     <div class="collapse navbar-collapse" id="HOME">
       <ul class="nav navbar-nav">
-      <li class="active"><a href="homepage.php">Home</a></li>
+      <li class="active"><a href="homepage_admin.php">Home</a></li>
       <li><a href="products.php">Product List</a></li>
+      <li><a href="adminportal.php">Admin</a></li>     
   <li><a href="logout.php">Log Out</a></li>
      
       </ul>
@@ -132,7 +135,7 @@ if(!isset($_SESSION["username"]))
     <div class="container">
         <h1>Athletes Signature Lines</h1>
         <div class="dropdown">
-            <span>Select Athletes Signature Sneaker Line:</span>
+            <span>Admin Home Page:</span>
             <div class="dropdown-content">
                 <a href="#" onmouseover="changeBackground('mike4.jpg')">Micheal Jordan</a>
                 <a href="#" onmouseover="changeBackground('kobe.jpg')">Kobe Bryant</a>
